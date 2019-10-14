@@ -1,18 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
+    android:background="@color/white"
+    >
+    <!--学校图标-->
+    <FrameLayout
+        android:id="@+id/f_logo"
+        android:layout_width="240dp"
+        android:layout_height="240dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/logo"
+        android:layout_marginTop="10dp">
+    </FrameLayout>
+    <!--国际教育学院-->
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:id="@+id/tv_text"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="250dp"
+        android:textColor="#000000"
+        android:text="Institute of International Education"
+        android:textSize="20sp"
+        android:gravity="center"
+        />
+    <!--学号部分-->
+    <EditText
+        android:id="@+id/et_user_id"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="11dp"
+        android:hint="输入学号"
+        android:inputType="number"
+        android:background="@drawable/public_text_bg"
+        android:paddingLeft="20dp"
+        android:selectAllOnFocus="true"
+        android:layout_below="@+id/tv_text"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:layout_marginLeft="70dp"
+        android:visibility="visible" />
+    <!--密码部分-->
+    <EditText
+        android:id="@+id/et_user_pwd"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="22dp"
+        android:hint="输入密码"
+        android:inputType="textPassword"
+        android:background="@drawable/public_text_bg"
+        android:layout_below="@+id/et_user_id"
+        android:paddingLeft="20dp"
+        android:layout_marginLeft="70dp"
+        android:selectAllOnFocus="false"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:visibility="visible" />
 
-</android.support.constraint.ConstraintLayout>
+    <Button
+        android:id="@+id/login"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="110dp"
+        android:background="@drawable/login_1"
+        android:layout_below="@+id/et_user_pwd"
+        android:textSize="20sp" />
+    <TextView
+        android:id="@+id/forget"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:clickable="true"
+        android:textSize="17dp"
+        android:layout_below="@+id/login"
+        android:background="#FFFFFF"
+        android:text="忘记密码？" />
+
+    <CheckBox
+        android:id="@+id/cb_id"
+        android:layout_width="130dp"
+        android:layout_height="30dp"
+        android:text="@string/remeber_pwd"
+        android:textSize="18sp"
+        android:layout_below="@+id/et_user_pwd"
+        android:layout_marginTop="30dp"
+        android:checked="true"
+        android:layout_centerHorizontal="true"
+        />
+
+    <CheckBox
+        android:id="@+id/cb_auto_login"
+        android:layout_width="130dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/cb_id"
+        android:text="@string/autologin"
+        android:layout_centerHorizontal="true"
+        android:checked="true"
+        android:textSize="18sp" />
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="330dp"
+        android:layout_marginLeft="20dp"
+        app:srcCompat="@drawable/user_logo"/>
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="390dp"
+        android:layout_marginLeft="20dp"
+        app:srcCompat="@drawable/user_password_logo"/>
+    <!--小眼睛-->
+    <ToggleButton
+        android:id="@+id/togglebutton"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="390dp"
+        android:layout_marginLeft="330dp"
+        android:textOn=""
+        android:textOff=""
+        android:background="@drawable/eye_visibility_bg"/>
+</RelativeLayout>

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">IES</string>
+    <string name="remeber_pwd">记住密码</string>
+    <string name="autologin">自动登录</string>
 </resources>
