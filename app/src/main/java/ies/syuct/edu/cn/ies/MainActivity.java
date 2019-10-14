@@ -1,9 +1,9 @@
-package ies.syuct.edu.cn;
+package ies.syuct.edu.cn.ies;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import ies.syuct.edu.cn.R;
+import ies.syuct.edu.cn.ies.R;
 
 public class MainActivity extends AppCompatActivity {
 
