@@ -1,21 +1,32 @@
 package ies.syuct.edu.cn.ies;
 
+import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
+import android.view.View;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import ies.syuct.edu.cn.utils.HttpUtilsHttpClient;
 
 public class MainActivity extends AppCompatActivity {
 
     private ToggleButton toggleButton;
     private EditText userPassword;
     private TextView forgetPassword;
+    private Button login;
 
 
     @Override
@@ -29,8 +40,9 @@ public class MainActivity extends AppCompatActivity {
         //忘记密码下划线
         forgetPassword = findViewById(R.id.forget);
         forgetPassword.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG);
-
-
+        //登录按钮
+        login = findViewById(R.id.login);
+        //验证登录
 
 
     }
@@ -53,6 +65,13 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
+
+
+
+
+
+
 
 }
 
