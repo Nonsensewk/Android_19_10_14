@@ -6,6 +6,20 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     >
+    <!--通知栏-->
+    <TextView
+        android:id="@+id/tv_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/login_top"
+        android:textSize="16sp"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:textColor="#9966cc"
+        />
     <!--学校图标-->
     <FrameLayout
         android:id="@+id/f_logo"
@@ -13,14 +27,14 @@
         android:layout_height="240dp"
         android:layout_centerHorizontal="true"
         android:background="@drawable/logo"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="30dp">
     </FrameLayout>
     <!--国际教育学院-->
     <TextView
         android:id="@+id/tv_text"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="260dp"
         android:textColor="#000000"
         android:text="Institute of International Education"
         android:textSize="20sp"
@@ -28,10 +42,10 @@
         />
     <!--学号部分-->
     <EditText
-        android:id="@+id/et_user_id"
+        android:id="@+id/et_user_name"
         android:layout_width="300dp"
         android:layout_height="40dp"
-        android:layout_marginTop="11dp"
+
         android:hint="输入学号"
         android:inputType="number"
         android:background="@drawable/public_text_bg"
@@ -51,7 +65,7 @@
         android:hint="输入密码"
         android:inputType="textPassword"
         android:background="@drawable/public_text_bg"
-        android:layout_below="@+id/et_user_id"
+        android:layout_below="@+id/et_user_name"
         android:paddingLeft="20dp"
         android:layout_marginLeft="70dp"
         android:selectAllOnFocus="false"
@@ -68,6 +82,7 @@
         android:background="@drawable/login_1"
         android:layout_below="@+id/et_user_pwd"
         android:textSize="20sp" />
+
     <TextView
         android:id="@+id/forget"
         android:layout_width="wrap_content"

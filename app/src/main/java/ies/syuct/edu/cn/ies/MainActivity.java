@@ -19,11 +19,16 @@ import android.widget.ToggleButton;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import ies.syuct.edu.cn.domain.StudentBean;
 import ies.syuct.edu.cn.utils.HttpUtilsHttpClient;
 
+/**
+ * 第一页，登录页面
+ */
 public class MainActivity extends AppCompatActivity {
 
     private ToggleButton toggleButton;
+    private EditText userName;
     private EditText userPassword;
     private TextView forgetPassword;
     private Button login;
@@ -33,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        userName = findViewById(R.id.et_user_name);
         userPassword = findViewById(R.id.et_user_pwd);
         //监听小眼睛的变化
         toggleButton = findViewById(R.id.togglebutton);
@@ -43,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         //登录按钮
         login = findViewById(R.id.login);
         //验证登录
+        login.setOnClickListener(new LoginButtonClick());
 
 
     }
@@ -65,13 +72,62 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+    //登录按钮点击事件
+    private class LoginButtonClick implements View.OnClickListener {
+
+        @Override
+        public void onClick(View v) {
+            //换背景
+            login.setBackgroundResource(R.drawable.login1);
+            //发送登录请求http ------    测试连接
+            //开启线程,4.0以后不支持主线程进行耗时操作
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    String url=HttpUtilsHttpClient.BASE_URL+"LoginServlet?username="+userName.getText().toString().trim()+"&password="+userPassword.getText().toString().trim();
+
+                    //请求，返回json
+                    String result = HttpUtilsHttpClient.getRequest(url);
+                    Message msg = new Message();
+                    msg.what=0x11;
+                    Bundle data=new Bundle();
+                    data.putString("result",result);
+                    msg.setData(data);
 
 
+                    //？？？？？
+                    handler.sendMessage(msg);
+                }
 
+                Handler handler = new Handler() {
+                    @Override
+                    public void handleMessage(Message msg) {
+                        //测试是否能连接，不传输有效数据
+                        if (msg.what == 0x11) {
+                            Bundle data = msg.getData();
+                            String key = data.getString("result");//得到json返回的json数据
+//                                   Toast.makeText(MainActivity.this,key,Toast.LENGTH_LONG).show();
+                            //StudentBean bean =new StudentBean();
+                            try {
+                                JSONObject json = new JSONObject(key);
+                                String result = (String) json.get("result");
+                                if ("success".equals(result)) {
+                                    Toast.makeText(MainActivity.this, "登录成功", Toast.LENGTH_LONG).show();
+                                    Intent intent = new Intent(MainActivity.this, IndexActivity.class);
+                                    intent.putExtra("","yes");//登录信息传递
+                                    startActivity(intent);
+                                } else if ("error".equals(result)) {
+                                    Toast.makeText(MainActivity.this, "登录失败", Toast.LENGTH_LONG).show();
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                };
 
-
-
-
-
+            }).start();
+        }
+    }
 }
 

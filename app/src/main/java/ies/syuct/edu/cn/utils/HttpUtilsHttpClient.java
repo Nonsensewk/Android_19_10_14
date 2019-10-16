@@ -21,7 +21,7 @@ public class HttpUtilsHttpClient {
     //1.创建HttpClient对象
     private static HttpClient httpClient = new DefaultHttpClient();
 
-    public static String BASE_URL= "http://192.168.191.2:8080/AndroidTest/";
+    public static String BASE_URL= "http://111.117.187.35:8080/AndroidTest/";
 //http://localhost:8080/AndroidTest/LoginServlet
     /**
      * GET方式
