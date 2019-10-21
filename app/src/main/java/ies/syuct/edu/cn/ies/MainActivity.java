@@ -108,11 +108,17 @@ public class MainActivity extends AppCompatActivity {
                             String key = data.getString("result");//得到json返回的json数据
 //                                   Toast.makeText(MainActivity.this,key,Toast.LENGTH_LONG).show();
                             //StudentBean bean =new StudentBean();
+
+
                             try {
                                 JSONObject json = new JSONObject(key);
-                                String result = (String) json.get("result");
-                                if ("success".equals(result)) {
-                                    Toast.makeText(MainActivity.this, "登录成功", Toast.LENGTH_LONG).show();
+                                String result = (String) json.get("result0");
+                                String res = (String) json.get("result1");
+                                //StudentBean ans = (StudentBean) json.get("result2");
+                                if ("success".equals(result))
+                                //if (true)
+                                {
+                                    Toast.makeText(MainActivity.this, "登录成功==", Toast.LENGTH_LONG).show();
                                     Intent intent = new Intent(MainActivity.this, IndexActivity.class);
                                     intent.putExtra("","yes");//登录信息传递
                                     startActivity(intent);
