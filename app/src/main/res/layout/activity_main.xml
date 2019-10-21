@@ -47,13 +47,13 @@
         android:layout_height="40dp"
 
         android:hint="输入学号"
-        android:inputType="number"
         android:background="@drawable/public_text_bg"
         android:paddingLeft="20dp"
         android:selectAllOnFocus="true"
         android:layout_below="@+id/tv_text"
         android:textColor="#000000"
         android:textSize="20sp"
+        android:inputType="number"
         android:layout_marginLeft="70dp"
         android:visibility="visible" />
     <!--密码部分-->

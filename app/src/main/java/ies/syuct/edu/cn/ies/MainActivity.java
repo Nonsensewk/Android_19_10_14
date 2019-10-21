@@ -1,6 +1,8 @@
 package ies.syuct.edu.cn.ies;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.os.Handler;
@@ -10,6 +12,7 @@ import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -32,7 +35,9 @@ public class MainActivity extends AppCompatActivity {
     private EditText userPassword;
     private TextView forgetPassword;
     private Button login;
-
+    private SharedPreferences sp;//android中的一个轻量级的存储类
+    private CheckBox remUser;
+    private CheckBox auto_Login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,10 +55,64 @@ public class MainActivity extends AppCompatActivity {
         login = findViewById(R.id.login);
         //验证登录
         login.setOnClickListener(new LoginButtonClick());
+        remUser = findViewById(R.id.cb_id);
+        auto_Login = findViewById(R.id.cb_auto_login);
+
+
+        //获取sp对象实例
+        sp = this.getSharedPreferences("userInfo", Context. MODE_PRIVATE );
+
+        //判断记住密码多选框的状态
+        if(sp.getBoolean("ISCHECK", false))
+        {
+
+            userName.setText(sp.getString("USER_NAME", ""));
+            userPassword.setText(sp.getString("PASSWORD", ""));
+            //判断自动登陆多选框状态
+            if(sp.getBoolean("AUTO_ISCHECK", false))
+            {
+                //设置默认是自动登录状态
+                auto_Login.setChecked(true);
+                //跳转界面
+                Intent intent = new Intent(MainActivity.this, IndexActivity.class);
+                startActivity(intent);
+            }
+        }
+        //监听记住密码多选框按钮事件
+        remUser.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {
+                if (remUser.isChecked()) {
+
+                    System.out.println("记住密码已选中");
+                    sp.edit().putBoolean("ISCHECK", true).commit();
+
+                }else {
+
+                    System.out.println("记住密码没有选中");
+                    sp.edit().putBoolean("ISCHECK", false).commit();
+
+                }
+
+            }
+        });
+
+        //监听自动登录多选框事件
+        auto_Login.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {
+                if (auto_Login.isChecked()) {
+                    System.out.println("自动登录已选中");
+                    sp.edit().putBoolean("AUTO_ISCHECK", true).commit();
+
+                } else {
+                    System.out.println("自动登录没有选中");
+                    sp.edit().putBoolean("AUTO_ISCHECK", false).commit();
+                }
+            }
+        });
+
 
 
     }
-
 
 
     //密码可见性监听事件
