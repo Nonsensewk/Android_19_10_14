@@ -57,6 +57,14 @@ public class MainActivity extends AppCompatActivity {
         login.setOnClickListener(new LoginButtonClick());
         remUser = findViewById(R.id.cb_id);
         auto_Login = findViewById(R.id.cb_auto_login);
+        //forget 页面跳转
+        forgetPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,PasswordForgetActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
 
@@ -174,15 +182,15 @@ public class MainActivity extends AppCompatActivity {
 
                             try {
                                 JSONObject json = new JSONObject(key);
-                                String result = (String) json.get("result0");
-                                String res = (String) json.get("result1");
+                                String result = (String) json.get("result");
                                 //StudentBean ans = (StudentBean) json.get("result2");
                                 if ("success".equals(result))
                                 //if (true)
                                 {
                                     Toast.makeText(MainActivity.this, "登录成功==", Toast.LENGTH_LONG).show();
                                     Intent intent = new Intent(MainActivity.this, IndexActivity.class);
-                                    intent.putExtra("","yes");//登录信息传递
+                          //          intent.putExtra("","yes");
+                                    // 登录信息传递
                                     startActivity(intent);
                                 } else if ("error".equals(result)) {
                                     Toast.makeText(MainActivity.this, "登录失败", Toast.LENGTH_LONG).show();
@@ -195,6 +203,8 @@ public class MainActivity extends AppCompatActivity {
                 };
 
             }).start();
+
+
         }
     }
 }
