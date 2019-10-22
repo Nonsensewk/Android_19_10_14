@@ -103,7 +103,6 @@
         android:textSize="18sp"
         android:layout_below="@+id/et_user_pwd"
         android:layout_marginTop="30dp"
-        android:checked="true"
         android:layout_centerHorizontal="true"
         />
 
@@ -114,7 +113,6 @@
         android:layout_below="@+id/cb_id"
         android:text="@string/autologin"
         android:layout_centerHorizontal="true"
-        android:checked="true"
         android:textSize="18sp" />
 
     <ImageView

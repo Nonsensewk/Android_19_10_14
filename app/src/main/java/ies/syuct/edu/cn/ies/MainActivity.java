@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
         auto_Login = findViewById(R.id.cb_auto_login);
 
 
+
         //获取sp对象实例
         sp = this.getSharedPreferences("userInfo", Context. MODE_PRIVATE );
 
@@ -68,21 +69,23 @@ public class MainActivity extends AppCompatActivity {
 
             userName.setText(sp.getString("USER_NAME", ""));
             userPassword.setText(sp.getString("PASSWORD", ""));
+            userName.setHint(sp.getString("USER_NAME",""));
+            userPassword.setHint(sp.getString("PASSWORD", ""));
+
             //判断自动登陆多选框状态
             if(sp.getBoolean("AUTO_ISCHECK", false))
             {
                 //设置默认是自动登录状态
                 auto_Login.setChecked(true);
                 //跳转界面
-                Intent intent = new Intent(MainActivity.this, IndexActivity.class);
-                startActivity(intent);
+            }else{
+
             }
         }
         //监听记住密码多选框按钮事件
         remUser.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {
                 if (remUser.isChecked()) {
-
                     System.out.println("记住密码已选中");
                     sp.edit().putBoolean("ISCHECK", true).commit();
 
