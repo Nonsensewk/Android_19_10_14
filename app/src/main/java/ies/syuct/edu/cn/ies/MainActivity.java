@@ -67,7 +67,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
         //获取sp对象实例
         sp = this.getSharedPreferences("userInfo", Context. MODE_PRIVATE );
 
@@ -188,7 +187,7 @@ public class MainActivity extends AppCompatActivity {
                                 //if (true)
                                 {
                                     Toast.makeText(MainActivity.this, "登录成功==", Toast.LENGTH_LONG).show();
-                                    Intent intent = new Intent(MainActivity.this, IndexActivity.class);
+                                    Intent intent = new Intent(MainActivity.this, HomeActivity.class);
                           //          intent.putExtra("","yes");
                                     // 登录信息传递
                                     startActivity(intent);

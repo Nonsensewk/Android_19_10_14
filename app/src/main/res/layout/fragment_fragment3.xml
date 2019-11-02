@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RadioGroup
+        android:id="@+id/rg_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:paddingLeft="30dp"
+        >
+
+        <RadioButton
+            android:id="@+id/rd_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="教 师"
+            android:textSize="18sp"
+            android:textColor="#4CAF50"
+            android:checked="true"
+            />
+
+        <RadioButton
+            android:id="@+id/rd_2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="学 生"
+            android:textColor="#4CAF50"
+            android:textSize="18sp"
+            />
+        <RadioButton
+            android:id="@+id/rd_3"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="院 长"
+            android:textColor="#4CAF50"
+            android:textSize="18sp"
+            />
+    </RadioGroup>
+    <TextView
+        android:id="@+id/tv_all"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:text="聊天内容"
+        android:layout_below="@id/rg_1"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/public_text_bg"/>
+    <EditText
+        android:id="@+id/tv_my"
+        android:layout_width="300dp"
+        android:layout_height="80dp"
+        android:hint="内容编辑区"
+        android:layout_below="@id/tv_all"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/public_text_bg"
+        />
+    <Button
+        android:id="@+id/bt_sent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_all"
+        android:layout_marginTop="25dp"
+        android:text="发送"
+        android:layout_marginLeft="310dp"
+        android:background="@drawable/public_buttontouch"/>
+
+</RelativeLayout>

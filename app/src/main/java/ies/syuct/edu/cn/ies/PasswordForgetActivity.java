@@ -66,7 +66,6 @@ public class PasswordForgetActivity extends AppCompatActivity {
                     Bundle data = new Bundle();
                     data.putString("result", result);
                     msg.setData(data);
-
                     //？？？？？
                     handler.sendMessage(msg);
                 }
