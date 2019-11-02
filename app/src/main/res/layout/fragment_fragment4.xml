@@ -9,13 +9,12 @@
         android:layout_height="280dp"
         android:background="@drawable/background"/>
     <!--图像-->
-    <com.example.test.CircleImageView
+    <ImageView
         android:id="@+id/imb_1"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="50dp"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/student"
         />
     <!--昵称-->
     <TextView
