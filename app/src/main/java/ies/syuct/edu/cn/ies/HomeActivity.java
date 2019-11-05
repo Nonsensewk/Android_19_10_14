@@ -45,16 +45,16 @@ public class HomeActivity extends FragmentActivity implements Fragment1.OnFragme
                     @Override
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                         switch (item.getItemId()) {
-                            case R.id.item_news:
+                            case R.id.item_map:
                                 viewPager.setCurrentItem(0);
                                 break;
-                            case R.id.item_lib:
+                            case R.id.item_course:
                                 viewPager.setCurrentItem(1);
                                 break;
-                            case R.id.item_find:
+                            case R.id.item_talk:
                                 viewPager.setCurrentItem(2);
                                 break;
-                            case R.id.item_more:
+                            case R.id.item_selfcenter:
                                 viewPager.setCurrentItem(3);
                                 break;
                         }

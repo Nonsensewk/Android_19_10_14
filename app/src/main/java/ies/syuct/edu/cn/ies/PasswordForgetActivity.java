@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -19,6 +20,7 @@ import ies.syuct.edu.cn.utils.HttpUtilsHttpClient;
 public class PasswordForgetActivity extends AppCompatActivity {
     EditText Sno,Email;
     Button Enter;
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +29,8 @@ public class PasswordForgetActivity extends AppCompatActivity {
         Enter = findViewById(R.id.enter);
         Email = findViewById(R.id.et_inputemail);
         Sno = findViewById(R.id.et_inputsno);
+        progressBar = findViewById(R.id.progress_bar);
+        progressBar.setVisibility(View.INVISIBLE);
        /* Enter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,6 +55,7 @@ public class PasswordForgetActivity extends AppCompatActivity {
 
         @Override
         public void onClick(View v) {
+            progressBar.setVisibility(View.VISIBLE);
             //发送登录请求http ------    测试连接
             //开启线程,4.0以后不支持主线程进行耗时操作
             new Thread(new Runnable() {
@@ -80,6 +85,7 @@ public class PasswordForgetActivity extends AppCompatActivity {
                                 JSONObject json = new JSONObject(key);
                                 String result = (String) json.get("result");
                                 Toast.makeText(PasswordForgetActivity.this, "info: " + result, Toast.LENGTH_LONG).show();
+                                progressBar.setVisibility(View.GONE);
 
                             } catch (JSONException e) {
                                 e.printStackTrace();

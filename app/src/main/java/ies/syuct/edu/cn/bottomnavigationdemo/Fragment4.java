@@ -4,10 +4,24 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+
 import ies.syuct.edu.cn.ies.R;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -26,6 +40,8 @@ public class Fragment4 extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private TextView userNichen;
 
     private OnFragmentInteractionListener mListener;
 
@@ -58,13 +74,44 @@ public class Fragment4 extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+         userNichen = getActivity().findViewById(R.id.user_nichen);
+//    同步    发送请求时 就会进入阻塞状态  直到收到响应
+        OkHttpClient client = new OkHttpClient();
+        Request request  = new Request.Builder()
+                .url("http://")
+                .get()
+                .build();
+        Call call = client.newCall(request);
+        try {
+            Response response = call.execute();//同步使用execute
+            System.out.println(response.body().string());
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+
+
+
     }
+
+    private void sloveJSON(String responseData) throws JSONException {
+        JSONArray jsonArray = new JSONArray(responseData); //将数据传入一个JSONArray对象中
+        for(int i=0;i<jsonArray.length();i++){  //遍历这个JSONArray对象
+            JSONObject jsonObject = jsonArray.getJSONObject(i);
+            String result = jsonObject.getString("result");
+
+
+        }
+
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_fragment4, container, false);
+
     }
 
     // TODO: Rename method, update argument and hook method into UI event
