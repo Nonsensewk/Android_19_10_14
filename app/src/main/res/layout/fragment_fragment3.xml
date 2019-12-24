@@ -41,23 +41,26 @@
             android:textSize="18sp"
             />
     </RadioGroup>
+
     <TextView
         android:id="@+id/tv_all"
         android:layout_width="match_parent"
         android:layout_height="500dp"
-        android:text="聊天内容"
         android:layout_below="@id/rg_1"
         android:layout_marginTop="30dp"
-        android:background="@drawable/public_text_bg"/>
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/public_text_bg"
+        android:text="     聊天内容" />
+
     <EditText
         android:id="@+id/tv_my"
-        android:layout_width="300dp"
-        android:layout_height="80dp"
-        android:hint="内容编辑区"
+        android:layout_width="302dp"
+        android:layout_height="51dp"
         android:layout_below="@id/tv_all"
         android:layout_marginTop="25dp"
         android:background="@drawable/public_text_bg"
-        />
+        android:hint="内容编辑区" />
     <Button
         android:id="@+id/bt_sent"
         android:layout_width="wrap_content"

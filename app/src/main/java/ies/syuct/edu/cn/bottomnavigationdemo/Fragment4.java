@@ -74,7 +74,8 @@ public class Fragment4 extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
+    }
+/*
          userNichen = getActivity().findViewById(R.id.user_nichen);
 //    同步    发送请求时 就会进入阻塞状态  直到收到响应
         OkHttpClient client = new OkHttpClient();
@@ -104,7 +105,7 @@ public class Fragment4 extends Fragment {
         }
 
     }
-
+*/
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

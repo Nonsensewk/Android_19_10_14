@@ -16,10 +16,6 @@ import ies.syuct.edu.cn.bottomnavigationdemo.Fragment3;
 import ies.syuct.edu.cn.bottomnavigationdemo.Fragment4;
 import ies.syuct.edu.cn.bottomnavigationdemo.ViewPagerAdapter;
 
-/**
- * Created by bruce on 2016/11/1.
- * HomeActivity 主界面
- */
 
 public class HomeActivity extends FragmentActivity implements Fragment1.OnFragmentInteractionListener, Fragment2.OnFragmentInteractionListener
         , Fragment3.OnFragmentInteractionListener, Fragment4.OnFragmentInteractionListener {
